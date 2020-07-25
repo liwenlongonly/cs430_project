@@ -4,6 +4,7 @@ from prompt import *
 
 
 def main():
+    is_back = False
     key = input(introduce)
     if key:
         os.system('cls')
@@ -24,6 +25,7 @@ def main():
                     print("快速排序选择中位数.....")
                 elif sort_choice in ('3', 'b', 'B'):
                     print("正在进入主菜单..........")
+                    is_back = True
                     break
                 elif sort_choice in ('4', 'q', 'Q'):
                     print("程序执行结束，欢迎下次访问.....")
@@ -35,6 +37,17 @@ def main():
             print("程序执行结束，欢迎下次访问.....")
         else:
             print("请输入正确的选择......")
+
+        # 如果是子菜单返回，不需要查询是否继续系统的运行，直接进入主菜单.
+        if is_back:
+            continue
+        # 询问用户是否继续系统的执行
+        again = input("Continue Syetem?(Y|N)")
+        if again in ('Y', 'y', ''):
+            continue
+        else:
+            print("程序执行结束，欢迎下次访问.....")
+            break
 
 
 if __name__ == '__main__':
