@@ -1,17 +1,60 @@
 # -*- coding: utf-8 -*-
 # @Time : 2020/7/25 12:58
-# @Author : ilong
+# @Author : Wenlong LI
 # @Site :
 # @File : median_finding.py
 # @Software: PyCharm
 import random
+from time import time
+from test_data import *
+
+
+def print_execute_time(func):
+    # 定义嵌套函数，用来打印出装饰的函数的执行时间
+    def wrapper(*args, **kwargs):
+        # 定义开始时间和结束时间，将func夹在中间执行，取得其返回值
+        start = time()
+        func_return = func(*args, **kwargs)
+        end = time()
+        # 打印方法名称和其执行时间
+        print("%s execute time: %0.2f ms" % (func.__name__, (end - start)*1000))
+        # 返回func的返回值
+        return func_return
+
+    # 返回嵌套的函数
+    return wrapper
+
+
+@print_execute_time
+def median_finding_randomized(a, p, r, i):
+    """
+    :param a: input array
+    :param p: the left edge of the array, [0...
+    :param r: the right edge of the array ...len(array) - 1]
+    :param i: i-th smallest number, value range starts from 1
+    """
+    return _median_finding_randomized(a, p, r, i)
+
+
+@print_execute_time
+def median_finding_sort(a, p, r, i):
+    """
+    :param a: input array
+    :param p: the left edge of the array, [0...
+    :param r: the right edge of the array ...len(array) - 1]
+    :param i: i-th smallest number, value range starts from 1
+    """
+    if a is None or len(a) <= 0:
+        return -1
+    result = _merge_sort(a)
+    return result[i-1]
 
 
 def _partition(a, p, r):
-    x = a[r]
+    value = a[r]
     i = p - 1
     for j in range(p, r):
-        if a[j] <= x:
+        if a[j] <= value:
             i += 1
             a[i], a[j] = a[j], a[i]
         # print("i:%d,j:%d" % (i, j))
@@ -27,13 +70,7 @@ def _randomized_partition(a, p, r):
     return _partition(a, p, r)
 
 
-def median_finding_randomized(a, p, r, i):
-    """
-    :param a: input array
-    :param p: the left edge of the array, [0...
-    :param r: the right edge of the array ...len(array) - 1]
-    :param i: i-th smallest number, value range starts from 1
-    """
+def _median_finding_randomized(a, p, r, i):
     if a is None or len(a) <= 0:
         return -1
     if p == r:
@@ -43,19 +80,19 @@ def median_finding_randomized(a, p, r, i):
     if i == k:
         return a[q]
     elif i < k:
-        return median_finding_randomized(a, p, q-1, i)
+        return _median_finding_randomized(a, p, q - 1, i)
     else:
-        return median_finding_randomized(a, q+1, r, i-k)
+        return _median_finding_randomized(a, q + 1, r, i - k)
 
 
-def _merge_sort(alist):
-    n = len(alist)
+def _merge_sort(a):
+    n = len(a)
     if n <= 1:
-        return alist
+        return a
     mid = n // 2
 
-    left_li = _merge_sort(alist[:mid])
-    right_li = _merge_sort(alist[mid:])
+    left_li = _merge_sort(a[:mid])
+    right_li = _merge_sort(a[mid:])
 
     left_pointer = 0
     right_pointer = 0
@@ -73,35 +110,25 @@ def _merge_sort(alist):
     return result
 
 
-def median_finding_sort(a, p, r, i):
-    """
-    :param a: input array
-    :param p: the left edge of the array, [0...
-    :param r: the right edge of the array ...len(array) - 1]
-    :param i: i-th smallest number, value range starts from 1
-    """
-    if a is None or len(a) <= 0:
-        return -1
-    result = _merge_sort(a)
-    return result[i-1]
-
-
 def _test(a, median_finding):
     print(a)
     print(median_finding(a, 0, len(a) - 1, 1))  # min
-    print(median_finding(a, 0, len(a) - 1, 4))
-    print(median_finding(a, 0, len(a) - 1, 7))  # median
-    print(median_finding(a, 0, len(a) - 1, 9))
+    print(median_finding(a, 0, len(a) - 1, len(a)//4))
+    print(median_finding(a, 0, len(a) - 1, len(a)//2))  # median
+    print(median_finding(a, 0, len(a) - 1, len(a)//4*3))
     print(median_finding(a, 0, len(a) - 1, len(a)))  # max
 
 
 if __name__ == '__main__':
-    testArr0 = None
-    # _test(testArr0, median_finding_randomized)
     testArr1 = []
-    _test(testArr1, median_finding_randomized)
     testArr2 = [10, 456, 66, 33, 87, 3, 5, 88, 100, 43, 56, 10]
+    testArr3 = random_1k[:]
+    testArr4 = random_10k[:]
+    _test(testArr1, median_finding_randomized)
     _test(testArr2, median_finding_randomized)
+    _test(testArr3, median_finding_randomized)
+    _test(testArr4, median_finding_randomized)
     _test(testArr1, median_finding_sort)
     _test(testArr2, median_finding_sort)
-
+    _test(testArr3, median_finding_sort)
+    _test(testArr4, median_finding_sort)
