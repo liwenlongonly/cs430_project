@@ -6,8 +6,8 @@
    
    |                  | median finding randomized | median finding sort |
    | ---------------- | ------------------------- | ------------------- |
-   | positive sort 1k |                           |                     |
-   | reverse sort 1k  |                           |                     |
-   | random 1k        |                           |                     |
+   | positive sort 1k | 0.00 ms                   | 2.85 ms             |
+   | reverse sort 1k  | 0.00 ms                   | 2.86 ms             |
+   | random 1k        |                           | 4.86 ms             |
 
 2. Quick Sort :

@@ -112,20 +112,22 @@ def _merge_sort(a):
 
 def _test(a, median_finding):
     print(a)
-    print(median_finding(a, 0, len(a) - 1, 1))  # min
+    # print(median_finding(a, 0, len(a) - 1, 1))  # min
     print(median_finding(a, 0, len(a) - 1, len(a)//2))  # median
-    print(median_finding(a, 0, len(a) - 1, len(a)))  # max
+    # print(median_finding(a, 0, len(a) - 1, len(a)))  # max
 
 
 if __name__ == '__main__':
-    testArr1 = random_1k[:]
-    testArr2 = positive_sort_1k[:]
-    testArr3 = reverse_sort_1k[:]
-
+    testArr1 = positive_sort_1k[:]
+    testArr2 = reverse_sort_1k[:]
+    testArr3 = random_1k[:]
     _test(testArr1, median_finding_randomized)
     _test(testArr2, median_finding_randomized)
     _test(testArr3, median_finding_randomized)
 
+    testArr1 = positive_sort_1k[:]
+    testArr2 = reverse_sort_1k[:]
+    testArr3 = random_1k[:]
     _test(testArr1, median_finding_sort)
     _test(testArr2, median_finding_sort)
     _test(testArr3, median_finding_sort)
