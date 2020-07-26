@@ -1,5 +1,5 @@
 import os
-from median_finding import median_finading
+from median_finding import *
 from prompt import *
 
 
@@ -16,7 +16,7 @@ def main():
         if choice in ('1', 'm', 'M'):
             str_array = input(median_prompt)
             array = [int(item) for item in str_array.split()]
-            result = median_finading(array, 0, len(array) - 1, 1)
+            result = median_finding_randomized(array, 0, len(array) - 1, 1)
             result_string = median_result.format(str_array, result)
             print(result_string)
         elif choice in ('2', 's', 'S'):
