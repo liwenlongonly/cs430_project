@@ -33,9 +33,9 @@ for x in range(0, 25*1000):
 
 positive_sort_1k = []
 for x in range(0, 1*1000):
-    random_10k.append(x)
+    positive_sort_1k.append(x)
 
 reverse_sort_1k = []
 for x in range(1*1000, 0):
-    random_10k.append(x)
+    reverse_sort_1k.append(x)
 

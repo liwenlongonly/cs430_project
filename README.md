@@ -1,8 +1,13 @@
-### cs430_project
+# cs430_project
 
-IIT cs430 project
+> IIT cs430 project
 
-Median Finding :
+1. Median Finding :
+   
+   |                  | median finding randomized | median finding sort |
+   | ---------------- | ------------------------- | ------------------- |
+   | positive sort 1k |                           |                     |
+   | reverse sort 1k  |                           |                     |
+   | random 1k        |                           |                     |
 
-
-Quick Sort :
+2. Quick Sort :
