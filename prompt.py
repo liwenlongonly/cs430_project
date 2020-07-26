@@ -1,6 +1,7 @@
 """
 代码提示信息存储位置
 """
+back_prompt = "正在返回主菜单......"
 introduce = """
 ---------------------------------------------------------
                 ***** Project Introduce *****
@@ -58,11 +59,6 @@ Input array example: 11 20 6 5 7 9 8 10 43 77 101 88 0
 ---------------------------------------------------------
 [*] Press Choice 1-4 or r|m|b|p......"""
 
-"""
-again = input("Continue Syetem?(Y|N)")
-if again in ('Y', 'y', ''):
-    continue
-else:
-    print("程序执行结束，欢迎下次访问.....")
-    break
-"""
+
+def cls():
+    print("\n" * 20)

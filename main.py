@@ -6,9 +6,11 @@ from prompt import *
 def main():
     is_back = False
     key = input(introduce)
-    if key:
-        os.system('cls')
     while True:
+        # 清空屏幕
+        os.system("clear")
+        if is_back:
+            print(back_prompt)
         choice = input(menu)
         if choice in ('1', 'm', 'M'):
             str_array = input(median_prompt)
@@ -33,8 +35,8 @@ def main():
         elif choice in ('3', 'h', 'H'):
             print(help)
         elif choice in ('4', 'q', 'Q'):
-            exit()
             print("程序执行结束，欢迎下次访问.....")
+            exit()
         else:
             print("请输入正确的选择......")
 
