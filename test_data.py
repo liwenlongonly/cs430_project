@@ -36,6 +36,6 @@ for x in range(0, 1*1000):
     positive_sort_1k.append(x)
 
 reverse_sort_1k = []
-for x in range(1*1000, 0):
-    reverse_sort_1k.append(x)
+for x in range(0, 1*1000):
+    reverse_sort_1k.append(1*1000-x)
 
