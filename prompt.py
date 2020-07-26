@@ -60,5 +60,3 @@ Input array example: 11 20 6 5 7 9 8 10 43 77 101 88 0
 [*] Press Choice 1-4 or r|m|b|p......"""
 
 
-def cls():
-    print("\n" * 20)

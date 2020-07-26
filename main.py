@@ -4,8 +4,9 @@ from prompt import *
 
 
 def main():
-    is_back = False
+
     key = input(introduce)
+    is_back = False
     while True:
         # 清空屏幕
         os.system("clear")
@@ -34,6 +35,7 @@ def main():
                     exit()
         elif choice in ('3', 'h', 'H'):
             print(help)
+            input('[*] Press any key enter  menu ......')
         elif choice in ('4', 'q', 'Q'):
             print("程序执行结束，欢迎下次访问.....")
             exit()
