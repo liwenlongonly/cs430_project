@@ -102,17 +102,43 @@ def _test(a, median_finding):
 
 if __name__ == '__main__':
     from test_data import *
+    print("median_finding_randomized >>>>>>>>>>>>>>>")
     testArr1 = positive_sort_1k[:]
     testArr2 = reverse_sort_1k[:]
     testArr3 = random_1k[:]
     _test(testArr1, median_finding_randomized)
     _test(testArr2, median_finding_randomized)
     _test(testArr3, median_finding_randomized)
-
+    print("median_finding_sort >>>>>>>>>>>>>>>")
     testArr1 = positive_sort_1k[:]
     testArr2 = reverse_sort_1k[:]
     testArr3 = random_1k[:]
     _test(testArr1, median_finding_sort)
     _test(testArr2, median_finding_sort)
     _test(testArr3, median_finding_sort)
-
+    print("median_finding_randomized >>>>>>>>>>>>>>>")
+    testArr4 = random_1k[:]
+    testArr5 = random_5k[:]
+    testArr6 = random_10k[:]
+    testArr7 = random_15k[:]
+    testArr8 = random_20k[:]
+    testArr9 = random_25k[:]
+    _test(testArr4, median_finding_randomized)
+    _test(testArr5, median_finding_randomized)
+    _test(testArr6, median_finding_randomized)
+    _test(testArr7, median_finding_randomized)
+    _test(testArr8, median_finding_randomized)
+    _test(testArr9, median_finding_randomized)
+    print("median_finding_sort >>>>>>>>>>>>>>>")
+    testArr4 = random_1k[:]
+    testArr5 = random_5k[:]
+    testArr6 = random_10k[:]
+    testArr7 = random_15k[:]
+    testArr8 = random_20k[:]
+    testArr9 = random_25k[:]
+    _test(testArr4, median_finding_sort)
+    _test(testArr5, median_finding_sort)
+    _test(testArr6, median_finding_sort)
+    _test(testArr7, median_finding_sort)
+    _test(testArr8, median_finding_sort)
+    _test(testArr9, median_finding_sort)
