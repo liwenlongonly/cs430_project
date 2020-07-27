@@ -1,22 +1,31 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*- 
 import random
-
+from median_finding import median_finding_randomized 
+import sys
+sys.setrecursionlimit(10000000)
 class quick_sort:
 
-	def __init__(self,n):
+	def main(self,n,type_="random"):
 		self.n=n
+		self.type_=type_
 		self.quicksort(self.n,0,len(n)-1)
-	
+		return self.n	
 
 	def partition(self,n,p,r):
-		#取随机部分
-		random_x=random.randint(p,r-1)
-		temp=n[random_x]
-		n[random_x]=n[r]
-		n[r]=temp
-		#取中值部分
-		#n[r]=functionxxxx(n)
+		# random 代表使用随机数来进行快速排序
+		# median 代表使用中值来进行快速排序
+		# 不传   代表使用数组最后一个值的正常快速排序
+		
+		if str(self.type_)=="random":
+			random_x=random.randint(p,r-1)
+			temp=n[random_x]
+			n[random_x]=n[r]
+			n[r]=temp
+		if str(self.type_)=="median":
+			
+			n[r]=median_finding_randomized(n,p,r,int((r-p)/2+1))
+		
 		x=n[r]
 		i=p-1
 		for j in range(p,r):
@@ -38,17 +47,23 @@ class quick_sort:
 			self.quicksort(n,p,q-1)
 			self.quicksort(n,q+1,r)
 	
-	def get_res(self):
-		return self.n
+
 
 if __name__ == '__main__':
 
-	num=1000
+	num=5000
 	n=[]
 	for x in range(0,num):
 		n.append(random.randint(0,x))
 
-	obj=quick_sort(n)
-	print(obj.get_res())
-
-	
+	obj_=quick_sort()
+	#a=time.time()
+	obj_.main(n,'median')#带中值快排
+	#b=time.time()
+	obj_.main(n,'random')#带随机数快排
+	#c=time.time()
+	obj_.main(n,'')#直接快排
+	# d=time.time()
+	# print(b-a)
+	# print(c-b)
+	# print(d-c)	
