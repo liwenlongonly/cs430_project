@@ -3,7 +3,7 @@
 import random
 from median_finding import median_finding_randomized
 from common import print_execute_time
-
+import time
 
 class QuickSort:
 
@@ -16,30 +16,47 @@ class QuickSort:
     def partition(self, n, p, r):
         # random 代表使用随机数来进行快速排序
         # median 代表使用中值来进行快速排序
-        # 不传   代表使用数组最后一个值的正常快速排序
-
+         
+        
         if str(self.type_) == "random":
             random_x = random.randint(p, r - 1)
             temp = n[random_x]
             n[random_x] = n[r]
             n[r] = temp
+            x=n[r]
+       
+        
+            i = p - 1
+            
+            for j in range(p, r):
+
+                if n[j] <= x:
+                    i += 1
+                    temp = n[i]
+                    n[i] = n[j]
+                    n[j] = temp
+
+            temp = n[i + 1]
+            n[i + 1] = x
+            n[r] = temp
+            return i + 1
+
+
         if str(self.type_) == "median":
-            n[r] = median_finding_randomized(n, p, r, int((r - p) / 2 + 1))
+            
+            x = median_finding_randomized(n, p, r, int((r - p) / 2)+1)
 
-        x = n[r]
-        i = p - 1
-        for j in range(p, r):
+            i = p - 1
+            
+            for j in range(p, r):
 
-            if n[j] <= x:
-                i += 1
-                temp = n[i]
-                n[i] = n[j]
-                n[j] = temp
+                if n[j] <= x:
+                    i += 1
+                    temp = n[i]
+                    n[i] = n[j]
+                    n[j] = temp
 
-        temp = n[i + 1]
-        n[i + 1] = n[r]
-        n[r] = temp
-        return i + 1
+            return i
 
     def _quickSort(self, n, p, r):
         if p < r:
@@ -49,6 +66,8 @@ class QuickSort:
 
 
 if __name__ == '__main__':
+
+
     from test_data import *
 
 
@@ -81,13 +100,13 @@ if __name__ == '__main__':
     testArr7 = random_15k[:]
     testArr8 = random_20k[:]
     testArr9 = random_25k[:]
-    # print(_quick_sort_test(testArr4, "random"))
+    print(_quick_sort_test(testArr4, "random"))
     # print(_quick_sort_test(testArr5, "random"))
     # print(_quick_sort_test(testArr6, "random"))
     # print(_quick_sort_test(testArr7, "random"))
     # print(_quick_sort_test(testArr8, "random"))
-    print(testArr9)
-    print(_quick_sort_test(testArr9, "random"))
+    #print(testArr9)
+    #print(_quick_sort_test(testArr9, "random"))
 
     print("quick sort median >>>>>>>>>>>>>>>")
     testArr4 = random_1k[:]
@@ -96,10 +115,10 @@ if __name__ == '__main__':
     testArr7 = random_15k[:]
     testArr8 = random_20k[:]
     testArr9 = random_25k[:]
-    # print(_quick_sort_test(testArr4, "median"))
+    print(_quick_sort_test(testArr4, "median"))
     # print(_quick_sort_test(testArr5, "median"))
     # print(_quick_sort_test(testArr6, "median"))
     # print(_quick_sort_test(testArr7, "median"))
     # print(_quick_sort_test(testArr8, "median"))
-    print(testArr9)
-    print(_quick_sort_test(testArr9, "median"))
+    #print(testArr9)
+   # print(_quick_sort_test(testArr9, "median"))
