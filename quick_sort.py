@@ -42,9 +42,6 @@ class quick_sort:
 		return self.n
 
 if __name__ == '__main__':
-	
-
-
 
 	num=1000
 	n=[]

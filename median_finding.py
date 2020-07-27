@@ -5,24 +5,7 @@
 # @File : median_finding.py
 # @Software: PyCharm
 import random
-from time import time
-from test_data import *
-
-
-def print_execute_time(func):
-    # 定义嵌套函数，用来打印出装饰的函数的执行时间
-    def wrapper(*args, **kwargs):
-        # 定义开始时间和结束时间，将func夹在中间执行，取得其返回值
-        start = time()
-        func_return = func(*args, **kwargs)
-        end = time()
-        # 打印方法名称和其执行时间
-        print("%s execute time: %0.2f ms" % (func.__name__, (end - start)*1000))
-        # 返回func的返回值
-        return func_return
-
-    # 返回嵌套的函数
-    return wrapper
+from common import print_execute_time
 
 
 @print_execute_time
@@ -118,6 +101,7 @@ def _test(a, median_finding):
 
 
 if __name__ == '__main__':
+    from test_data import *
     testArr1 = positive_sort_1k[:]
     testArr2 = reverse_sort_1k[:]
     testArr3 = random_1k[:]
