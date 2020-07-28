@@ -11,7 +11,6 @@ import sys
 sys.setrecursionlimit(1000000)
 
 
-@print_execute_time
 def median_finding_randomized(a, p, r, i):
     """
     :param a: input array
@@ -33,7 +32,6 @@ def median_finding_randomized(a, p, r, i):
         return median_finding_randomized(a, q + 1, r, i - k)
 
 
-@print_execute_time
 def median_finding_right(a, p, r, i):
     """
     :param a: input array
@@ -81,6 +79,16 @@ def _right_partition(a, p, r):
     return _partition(a, p, r)
 
 
+@print_execute_time
+def median_finding_randomized_test(a, p, r, i):
+    return median_finding_randomized(a, p, r, i)
+
+
+@print_execute_time
+def median_finding_right_test(a, p, r, i):
+    return median_finding_right(a, p, r, i)
+
+
 if __name__ == '__main__':
     from test_data import *
 
@@ -88,34 +96,23 @@ if __name__ == '__main__':
     def _test(a, median_finding):
         print(a)
         # print(median_finding(a, 0, len(a) - 1, 1))  # min
-        print(median_finding(a, 0, len(a) - 1, len(a) // 2))  # median
+        median_finding(a, 0, len(a) - 1, (len(a)+1) // 2)  # median
         # print(median_finding(a, 0, len(a) - 1, len(a)))  # max
 
-
-    @print_execute_time
-    def _median_finding_randomized_test(a, p, r, i):
-        return median_finding_randomized(a, p, r, i)
-
-
-    @print_execute_time
-    def _median_finding_right_test(a, p, r, i):
-        return median_finding_right(a, p, r, i)
-
-
     print("median_finding_randomized >>>>>>>>>>>>>>>")
     testArr1 = positive_sort_1k[:]
     testArr2 = reverse_sort_1k[:]
     testArr3 = random_1k[:]
-    _test(testArr1, _median_finding_randomized_test)
-    _test(testArr2, _median_finding_randomized_test)
-    _test(testArr3, _median_finding_randomized_test)
+    _test(testArr1, median_finding_randomized_test)
+    _test(testArr2, median_finding_randomized_test)
+    _test(testArr3, median_finding_randomized_test)
     print("median_finding_right >>>>>>>>>>>>>>>")
     testArr1 = positive_sort_1k[:]
     testArr2 = reverse_sort_1k[:]
     testArr3 = random_1k[:]
-    _test(testArr1, _median_finding_right_test)
-    _test(testArr2, _median_finding_right_test)
-    _test(testArr3, _median_finding_right_test)
+    _test(testArr1, median_finding_right_test)
+    _test(testArr2, median_finding_right_test)
+    _test(testArr3, median_finding_right_test)
     print("median_finding_randomized >>>>>>>>>>>>>>>")
     testArr4 = random_1k[:]
     testArr5 = random_5k[:]
@@ -123,12 +120,12 @@ if __name__ == '__main__':
     testArr7 = random_15k[:]
     testArr8 = random_20k[:]
     testArr9 = random_25k[:]
-    _test(testArr4, _median_finding_randomized_test)
-    _test(testArr5, _median_finding_randomized_test)
-    _test(testArr6, _median_finding_randomized_test)
-    _test(testArr7, _median_finding_randomized_test)
-    _test(testArr8, _median_finding_randomized_test)
-    _test(testArr9, _median_finding_randomized_test)
+    _test(testArr4, median_finding_randomized_test)
+    _test(testArr5, median_finding_randomized_test)
+    _test(testArr6, median_finding_randomized_test)
+    _test(testArr7, median_finding_randomized_test)
+    _test(testArr8, median_finding_randomized_test)
+    _test(testArr9, median_finding_randomized_test)
     print("median_finding_right >>>>>>>>>>>>>>>")
     testArr4 = random_1k[:]
     testArr5 = random_5k[:]
@@ -136,9 +133,9 @@ if __name__ == '__main__':
     testArr7 = random_15k[:]
     testArr8 = random_20k[:]
     testArr9 = random_25k[:]
-    _test(testArr4, _median_finding_right_test)
-    _test(testArr5, _median_finding_right_test)
-    _test(testArr6, _median_finding_right_test)
-    _test(testArr7, _median_finding_right_test)
-    _test(testArr8, _median_finding_right_test)
-    _test(testArr9, _median_finding_right_test)
+    _test(testArr4, median_finding_right_test)
+    _test(testArr5, median_finding_right_test)
+    _test(testArr6, median_finding_right_test)
+    _test(testArr7, median_finding_right_test)
+    _test(testArr8, median_finding_right_test)
+    _test(testArr9, median_finding_right_test)

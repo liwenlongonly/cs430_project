@@ -7,6 +7,7 @@
 from time import time
 from functools import  wraps
 
+
 def print_execute_time(func):
     # 定义嵌套函数，用来打印出装饰的函数的执行时间
     def wrapper(*args, **kwargs):

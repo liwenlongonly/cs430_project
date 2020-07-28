@@ -1,8 +1,8 @@
 import os
-from median_finding import _median_finding_randomized_test, _median_finding_right_test
+from median_finding import median_finding_randomized_test, median_finding_right_test
 from prompt import *
-from test_data import _create_random_array
-from quick_sort import _quick_sort_test
+from test_data import create_random_array
+from quick_sort import quick_sort_test
 
 
 def sub_choice_function(sub_prompt, func, type="median"):
@@ -30,7 +30,7 @@ def sub_choice_function(sub_prompt, func, type="median"):
             print(sub_prompt)
             count = int(input(auto_generate_count))
             array = []
-            _create_random_array(array, count)
+            create_random_array(array, count)
             print(random_array_prompt.format(array))
             if type == 'median':
                 result = func(array, 0, len(array) - 1, 1)
@@ -59,16 +59,16 @@ def main():
         choice = input(menu)
         # 1. Median of groups of 3,5 and 7
         if choice == '1':
-            sub_choice_function(median_prompt, _median_finding_right_test)
+            sub_choice_function(median_prompt, median_finding_right_test)
         # 2. Randomized median finding algorithm
         elif choice == '2':
-            sub_choice_function(random_median_prompt, _median_finding_randomized_test)
+            sub_choice_function(random_median_prompt, median_finding_randomized_test)
         # 3. Quick Sort choose random element in the array as the pivot
         elif choice == '3':
-            sub_choice_function(random_sort_prompt, _quick_sort_test, type='random-sort')
+            sub_choice_function(random_sort_prompt, quick_sort_test, type='random-sort')
         # 4. Quick Sort choose median in the array as the pivot
         elif choice == '4':
-            sub_choice_function(median_sort_prompt, _quick_sort_test, type='median-sort')
+            sub_choice_function(median_sort_prompt, quick_sort_test, type='median-sort')
         elif choice == '5':
             print(end_string)
             exit()

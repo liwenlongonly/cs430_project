@@ -7,28 +7,28 @@
 import random
 
 
-def _create_random_array(array, max_value):
+def create_random_array(array, max_value):
     for x in range(0, max_value):
         array.append(random.randint(0, max_value))
 
 
 random_1k = []
-_create_random_array(random_1k, 1*1000)
+create_random_array(random_1k, 1*1000)
 
 random_5k = []
-_create_random_array(random_5k, 5*1000)
+create_random_array(random_5k, 5*1000)
 
 random_10k = []
-_create_random_array(random_10k, 10*1000)
+create_random_array(random_10k, 10*1000)
 
 random_15k = []
-_create_random_array(random_15k, 15*1000)
+create_random_array(random_15k, 15*1000)
 
 random_20k = []
-_create_random_array(random_20k, 20*1000)
+create_random_array(random_20k, 20*1000)
 
 random_25k = []
-_create_random_array(random_25k, 25*1000)
+create_random_array(random_25k, 25*1000)
 
 positive_sort_1k = []
 for x in range(0, 1*1000):

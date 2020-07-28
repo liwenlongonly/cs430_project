@@ -59,17 +59,15 @@ class QuickSort:
             self._quickSort(n, p, q - 1)
             self._quickSort(n, q + 1, r)
 
-def _quick_sort_test(n, type="random"):
+
+@print_execute_time
+def quick_sort_test(n, type="random"):
     obj_ = QuickSort()
     return obj_.quickSort(n, type)
+
+
 if __name__ == '__main__':
     from test_data import *
-
-    @print_execute_time
-    def _quick_sort_test(n, type="random"):
-        obj_ = QuickSort()
-        return obj_.quickSort(n, type)
-
 
     # print("quick sort random >>>>>>>>>>>>>>>")
     # testArr1 = positive_sort_1k[:]
@@ -94,7 +92,7 @@ if __name__ == '__main__':
     testArr7 = random_15k[:]
     testArr8 = random_20k[:]
     testArr9 = random_25k[:]
-    print(_quick_sort_test(testArr4, "random"))
+    quick_sort_test(testArr4, "random")
     # print(_quick_sort_test(testArr5, "random"))
     # print(_quick_sort_test(testArr6, "random"))
     # print(_quick_sort_test(testArr7, "random"))
@@ -109,7 +107,7 @@ if __name__ == '__main__':
     testArr7 = random_15k[:]
     testArr8 = random_20k[:]
     testArr9 = random_25k[:]
-    print(_quick_sort_test(testArr4, "median"))
+    quick_sort_test(testArr4, "median")
     # print(_quick_sort_test(testArr5, "median"))
     # print(_quick_sort_test(testArr6, "median"))
     # print(_quick_sort_test(testArr7, "median"))
