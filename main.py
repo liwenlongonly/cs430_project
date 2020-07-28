@@ -1,5 +1,5 @@
 import os
-from median_finding import *
+from median_finding import _median_finding_randomized_test, _median_finding_right_test
 from prompt import *
 from test_data import _create_random_array
 from quick_sort import _quick_sort_test
@@ -59,10 +59,10 @@ def main():
         choice = input(menu)
         # 1. Median of groups of 3,5 and 7
         if choice == '1':
-            sub_choice_function(median_prompt, median_finding_right)
+            sub_choice_function(median_prompt, _median_finding_right_test)
         # 2. Randomized median finding algorithm
         elif choice == '2':
-            sub_choice_function(random_median_prompt, median_finding_randomized)
+            sub_choice_function(random_median_prompt, _median_finding_randomized_test)
         # 3. Quick Sort choose random element in the array as the pivot
         elif choice == '3':
             sub_choice_function(random_sort_prompt, _quick_sort_test, type='random-sort')
