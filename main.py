@@ -23,9 +23,11 @@ def sub_choice_function(sub_prompt, func, type="median"):
             if type == 'median':
                 result = func(array, 0, len(array) - 1, 1)
             elif type == 'median-sort':
-                result = func(array, type="median")
+                # result = func(array, type="median")
+                quick_sort_test(array, type='median')
             elif type == 'random-sort':
-                result = func(array, type="random")
+                # result = func(array, type="random")
+                quick_sort_test(array, type='random')
         elif sub_choice == '2':
             print(sub_prompt)
             count = int(input(auto_generate_count))
@@ -89,3 +91,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+    # result = quick_sort_test([3, 2, 1], type='median')
+    # print(result)

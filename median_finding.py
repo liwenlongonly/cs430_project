@@ -7,7 +7,6 @@
 import random
 from common import print_execute_time
 import sys
-
 sys.setrecursionlimit(1000000)
 
 
@@ -91,7 +90,6 @@ def median_finding_right_test(a, p, r, i):
 
 if __name__ == '__main__':
     from test_data import *
-
 
     def _test(a, median_finding):
         print(a)
