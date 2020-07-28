@@ -3,7 +3,6 @@
 import random
 from median_finding import median_finding_randomized
 from common import print_execute_time
-import time
 
 class QuickSort:
 
@@ -16,16 +15,13 @@ class QuickSort:
     def partition(self, n, p, r):
         # random 代表使用随机数来进行快速排序
         # median 代表使用中值来进行快速排序
-         
-        
+
         if str(self.type_) == "random":
             random_x = random.randint(p, r - 1)
             temp = n[random_x]
             n[random_x] = n[r]
             n[r] = temp
             x=n[r]
-       
-        
             i = p - 1
             
             for j in range(p, r):
@@ -40,7 +36,6 @@ class QuickSort:
             n[i + 1] = x
             n[r] = temp
             return i + 1
-
 
         if str(self.type_) == "median":
             
@@ -66,10 +61,7 @@ class QuickSort:
 
 
 if __name__ == '__main__':
-
-
     from test_data import *
-
 
     @print_execute_time
     def _quick_sort_test(n, type="random"):

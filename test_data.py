@@ -32,7 +32,7 @@ _create_random_array(random_25k, 25*1000)
 
 positive_sort_1k = []
 for x in range(0, 1*1000):
-    positive_sort_1k.append(x)
+    positive_sort_1k.append(x+1)
 
 reverse_sort_1k = []
 for x in range(0, 1*1000):

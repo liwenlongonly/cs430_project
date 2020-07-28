@@ -4,19 +4,19 @@
 
 1. Median Finding :
    
-   | data len / time  | median finding__randomized | median finding__sort |
-   | ---------------- | -------------------------- | -------------------- |
-   | positive sort 1k | 0.71 ms                    | 3.17 ms              |
-   | reverse sort 1k  | 0.64 ms                    | 2.65 ms              |
-   | random 1k        | 0.61 ms                    | 5.33 ms              |
+   | median finding   | randomized(ms) | right(ms) |
+   | ---------------- | -------------- | --------- |
+   | positive sort 1k | 0.48           | 93.26     |
+   | reverse sort 1k  | 0.86           | 87.58     |
+   | random 1k        | 0.63           | 0.35      |
    
-   | data len / time | median finding__randomized | median finding__sort |
-   | --------------- | -------------------------- | -------------------- |
-   | random 1k       | 0.68 ms                    | 5.15 ms              |
-   | random 5k       | 3.78 ms                    | 29.62 ms             |
-   | random 10k      | 6.34 ms                    | 65.20 ms             |
-   | random 15k      | 9.65 ms                    | 129.31 ms            |
-   | random 20k      | 12.28 ms                   | 146.73 ms            |
-   | random 25k      | 12.53 ms                   | 170.40 ms            |
+   | median finding | randomized(ms) | right(ms) |
+   | -------------- | -------------- | --------- |
+   | random 1k      | 0.59           | 0.79      |
+   | random 5k      | 7.10           | 7.12      |
+   | random 10k     | 5.32           | 8.62      |
+   | random 15k     | 16.97          | 14.34     |
+   | random 20k     | 16.54          | 17.82     |
+   | random 25k     | 42.90          | 41.07     |
 
 2. Quick Sort :

@@ -6,6 +6,8 @@
 # @Software: PyCharm
 import random
 from common import print_execute_time
+import sys
+sys.setrecursionlimit(1000000)
 
 
 def median_finding_randomized(a, p, r, i):
@@ -29,7 +31,7 @@ def median_finding_randomized(a, p, r, i):
         return median_finding_randomized(a, q + 1, r, i - k)
 
 
-def median_finding_sort(a, p, r, i):
+def median_finding_right(a, p, r, i):
     """
     :param a: input array
     :param p: the left edge of the array, [0...
@@ -38,8 +40,16 @@ def median_finding_sort(a, p, r, i):
     """
     if a is None or len(a) <= 0:
         return -1
-    result = _merge_sort(a)
-    return result[i-1]
+    if p == r:
+        return a[p]
+    q = _right_partition(a, p, r)
+    k = q - p + 1
+    if i == k:
+        return a[q]
+    elif i < k:
+        return median_finding_right(a, p, q - 1, i)
+    else:
+        return median_finding_right(a, q + 1, r, i - k)
 
 
 def _partition(a, p, r):
@@ -62,29 +72,10 @@ def _randomized_partition(a, p, r):
     return _partition(a, p, r)
 
 
-def _merge_sort(a):
-    n = len(a)
-    if n <= 1:
-        return a
-    mid = n // 2
-
-    left_li = _merge_sort(a[:mid])
-    right_li = _merge_sort(a[mid:])
-
-    left_pointer = 0
-    right_pointer = 0
-    result = []
-
-    while left_pointer < len(left_li) and right_pointer < len(right_li):
-        if left_li[left_pointer] <= right_li[right_pointer]:
-            result.append(left_li[left_pointer])
-            left_pointer += 1
-        else:
-            result.append(right_li[right_pointer])
-            right_pointer += 1
-    result += left_li[left_pointer:]
-    result += right_li[right_pointer:]
-    return result
+def _right_partition(a, p, r):
+    i = r
+    a[i], a[r] = a[r], a[i]
+    return _partition(a, p, r)
 
 
 if __name__ == '__main__':
@@ -104,8 +95,8 @@ if __name__ == '__main__':
 
 
     @print_execute_time
-    def _median_finding_sort_test(a, p, r, i):
-        return median_finding_sort(a, p, r, i)
+    def _median_finding_right_test(a, p, r, i):
+        return median_finding_right(a, p, r, i)
 
 
     print("median_finding_randomized >>>>>>>>>>>>>>>")
@@ -115,13 +106,13 @@ if __name__ == '__main__':
     _test(testArr1, _median_finding_randomized_test)
     _test(testArr2, _median_finding_randomized_test)
     _test(testArr3, _median_finding_randomized_test)
-    print("median_finding_sort >>>>>>>>>>>>>>>")
+    print("median_finding_right >>>>>>>>>>>>>>>")
     testArr1 = positive_sort_1k[:]
     testArr2 = reverse_sort_1k[:]
     testArr3 = random_1k[:]
-    _test(testArr1, _median_finding_sort_test)
-    _test(testArr2, _median_finding_sort_test)
-    _test(testArr3, _median_finding_sort_test)
+    _test(testArr1, _median_finding_right_test)
+    _test(testArr2, _median_finding_right_test)
+    _test(testArr3, _median_finding_right_test)
     print("median_finding_randomized >>>>>>>>>>>>>>>")
     testArr4 = random_1k[:]
     testArr5 = random_5k[:]
@@ -135,16 +126,16 @@ if __name__ == '__main__':
     _test(testArr7, _median_finding_randomized_test)
     _test(testArr8, _median_finding_randomized_test)
     _test(testArr9, _median_finding_randomized_test)
-    print("median_finding_sort >>>>>>>>>>>>>>>")
+    print("median_finding_right >>>>>>>>>>>>>>>")
     testArr4 = random_1k[:]
     testArr5 = random_5k[:]
     testArr6 = random_10k[:]
     testArr7 = random_15k[:]
     testArr8 = random_20k[:]
     testArr9 = random_25k[:]
-    _test(testArr4, _median_finding_sort_test)
-    _test(testArr5, _median_finding_sort_test)
-    _test(testArr6, _median_finding_sort_test)
-    _test(testArr7, _median_finding_sort_test)
-    _test(testArr8, _median_finding_sort_test)
-    _test(testArr9, _median_finding_sort_test)
+    _test(testArr4, _median_finding_right_test)
+    _test(testArr5, _median_finding_right_test)
+    _test(testArr6, _median_finding_right_test)
+    _test(testArr7, _median_finding_right_test)
+    _test(testArr8, _median_finding_right_test)
+    _test(testArr9, _median_finding_right_test)
