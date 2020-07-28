@@ -11,7 +11,7 @@ import sys
 sys.setrecursionlimit(1000000)
 
 
-@print_execute_time
+# @print_execute_time
 def median_finding_randomized(a, p, r, i):
     """
     :param a: input array
@@ -33,7 +33,7 @@ def median_finding_randomized(a, p, r, i):
         return median_finding_randomized(a, q + 1, r, i - k)
 
 
-@print_execute_time
+# @print_execute_time
 def median_finding_right(a, p, r, i):
     """
     :param a: input array
@@ -81,27 +81,27 @@ def _right_partition(a, p, r):
     return _partition(a, p, r)
 
 
+from test_data import *
+
+
+def _test(a, median_finding):
+    print(a)
+    # print(median_finding(a, 0, len(a) - 1, 1))  # min
+    print(median_finding(a, 0, len(a) - 1, len(a) // 2))  # median
+    # print(median_finding(a, 0, len(a) - 1, len(a)))  # max
+
+
+@print_execute_time
+def _median_finding_randomized_test(a, p, r, i):
+    return median_finding_randomized(a, p, r, i)
+
+
+@print_execute_time
+def _median_finding_right_test(a, p, r, i):
+    return median_finding_right(a, p, r, i)
+
+
 if __name__ == '__main__':
-    from test_data import *
-
-
-    def _test(a, median_finding):
-        print(a)
-        # print(median_finding(a, 0, len(a) - 1, 1))  # min
-        print(median_finding(a, 0, len(a) - 1, len(a) // 2))  # median
-        # print(median_finding(a, 0, len(a) - 1, len(a)))  # max
-
-
-    @print_execute_time
-    def _median_finding_randomized_test(a, p, r, i):
-        return median_finding_randomized(a, p, r, i)
-
-
-    @print_execute_time
-    def _median_finding_right_test(a, p, r, i):
-        return median_finding_right(a, p, r, i)
-
-
     print("median_finding_randomized >>>>>>>>>>>>>>>")
     testArr1 = positive_sort_1k[:]
     testArr2 = reverse_sort_1k[:]
