@@ -59,7 +59,9 @@ class QuickSort:
             self._quickSort(n, p, q - 1)
             self._quickSort(n, q + 1, r)
 
-
+def _quick_sort_test(n, type="random"):
+    obj_ = QuickSort()
+    return obj_.quickSort(n, type)
 if __name__ == '__main__':
     from test_data import *
 

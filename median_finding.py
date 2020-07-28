@@ -7,9 +7,11 @@
 import random
 from common import print_execute_time
 import sys
+
 sys.setrecursionlimit(1000000)
 
 
+@print_execute_time
 def median_finding_randomized(a, p, r, i):
     """
     :param a: input array
@@ -31,6 +33,7 @@ def median_finding_randomized(a, p, r, i):
         return median_finding_randomized(a, q + 1, r, i - k)
 
 
+@print_execute_time
 def median_finding_right(a, p, r, i):
     """
     :param a: input array
@@ -61,8 +64,8 @@ def _partition(a, p, r):
             a[i], a[j] = a[j], a[i]
         # print("i:%d,j:%d" % (i, j))
         # print(a)
-    a[i+1], a[r] = a[r], a[i+1]
-    return i+1
+    a[i + 1], a[r] = a[r], a[i + 1]
+    return i + 1
 
 
 def _randomized_partition(a, p, r):

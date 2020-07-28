@@ -13,50 +13,39 @@ introduce = """
 
 ---------------------------------------------------------
 [*] Press any key enter  menu ......"""
-
 menu = """
 ---------------------------------------------------------
-                ***** Menu *****
+                ***** Main Menu *****
 ---------------------------------------------------------
-    1. (m)Median Finding
-    2. (s)Quick sort
-    3. (h)Help
-    4. (q)Quit
+    1. Median of groups of 3,5 and 7
+    2. Randomized median finding algorithm
+    3. Quick Sort choose random element in the array as the pivot
+    4. Quick Sort choose median in the array as the pivot
+    5. Quit
 
 ---------------------------------------------------------
 
-[*] Press Choice 1-4 or m|s|h|q ......"""
-help = """
----------------------------------------------------------
-                ***** Help *****
----------------------------------------------------------
-    1. (m)Median Finding - Press 1 or m or M
-    2. (s)Quick sort     - Press 2 or s or S
-    3. (h)Help           - Press 3 or h or H
-    4. (q)Quit           - Press 4 or q or Quit
+[*] Press Choice 1-5: """
+median_prompt = "-------------------- Median of groups of 3,5 and 7 -----------------------"
+random_median_prompt = "-------------------- Randomized median finding algorithm -----------------------"
+median_sort_prompt = "-------------------- Quick Sort choose random element as pivot  -----------------------"
+random_sort_prompt = "-------------------- Quick Sort choose median as  pivot  ---------------"
+other_prompt = """
+1. Hand Input Array
+2. Auto Random Array
+3. Back Menu
+4. Quit
+[*] Press Choice 1-4:  """
 
----------------------------------------------------------
-
-"""
-
-median_prompt = """
--------------------- Median Search ----------------------
+input_array_prompt = """
 Input array example: 11 20 6 5 7 9 8 10 43 77 101 88 0
 [*] Median Search, Please input array: """
 
-median_result = """
-******************* Median Result ***********************
-Success: Find Array {0} Median is {1}. 
-"""
+random_array_prompt = """
+generate random array......
+Array is: {0}"""
 
-quicksort_prompt = """
--------------------- Quick Sort -----------------------
-Input array example: 11 20 6 5 7 9 8 10 43 77 101 88 0
-    1. (r)Choose a random element in the array as the pivot
-    2. (m)Choose median in the array as the pivot
-    3. (b) Back Menu
-    4. (q) Quit
----------------------------------------------------------
-[*] Press Choice 1-4 or r|m|b|p......"""
+auto_generate_count = "Please input Auto Generate Array's Element Count:"
 
-
+end_string = "程序执行结束，欢迎下次访问....."
+error_choice_string = '请输入正确的选择......'

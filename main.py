@@ -1,10 +1,54 @@
 import os
 from median_finding import *
 from prompt import *
+from test_data import _create_random_array
+from quick_sort import _quick_sort_test
+
+
+def sub_choice_function(sub_prompt, func, type="median"):
+    """
+    :param sub_prompt: 子菜单的提示信息
+    :param func: 子菜单执行的业务逻辑函数
+    :param type: 子菜单的类型是找中位数还是排序(因为传递的参数不同),
+                "median"代表寻找中位数
+                "random-sort"代表随机数作为枢纽排序
+                "median-sort"代表中位数作为枢纽排序
+    :return:
+    """
+    while True:
+        sub_choice = input(sub_prompt + other_prompt)
+        if sub_choice == '1':
+            str_array = input(sub_prompt + input_array_prompt)
+            array = [int(item) for item in str_array.split()]
+            if type == 'median':
+                result = func(array, 0, len(array) - 1, 1)
+            elif type == 'median-sort':
+                result = func(array, type="median")
+            elif type == 'random-sort':
+                result = func(array, type="random")
+        elif sub_choice == '2':
+            print(sub_prompt)
+            count = int(input(auto_generate_count))
+            array = []
+            _create_random_array(array, count)
+            print(random_array_prompt.format(array))
+            if type == 'median':
+                result = func(array, 0, len(array) - 1, 1)
+            elif type == 'median-sort':
+                result = func(array, type="median")
+            elif type == 'random-sort':
+                result = func(array, type="random")
+        elif sub_choice == '3':
+            is_back = True
+            break
+        elif sub_choice == '4':
+            print(end_string)
+            exit()
+        else:
+            print(error_choice_string)
 
 
 def main():
-
     key = input(introduce)
     is_back = False
     while True:
@@ -13,34 +57,23 @@ def main():
         if is_back:
             print(back_prompt)
         choice = input(menu)
-        if choice in ('1', 'm', 'M'):
-            str_array = input(median_prompt)
-            array = [int(item) for item in str_array.split()]
-            result = median_finding_randomized(array, 0, len(array) - 1, 1)
-            result_string = median_result.format(str_array, result)
-            print(result_string)
-        elif choice in ('2', 's', 'S'):
-            while True:
-                sort_choice = input(quicksort_prompt)
-                if sort_choice in ('1', 'r', 'R'):
-                    print("快速排序选择随机值....")
-                elif sort_choice in ('2', 'm', 'M'):
-                    print("快速排序选择中位数.....")
-                elif sort_choice in ('3', 'b', 'B'):
-                    print("正在进入主菜单..........")
-                    is_back = True
-                    break
-                elif sort_choice in ('4', 'q', 'Q'):
-                    print("程序执行结束，欢迎下次访问.....")
-                    exit()
-        elif choice in ('3', 'h', 'H'):
-            print(help)
-            input('[*] Press any key enter  menu ......')
-        elif choice in ('4', 'q', 'Q'):
-            print("程序执行结束，欢迎下次访问.....")
+        # 1. Median of groups of 3,5 and 7
+        if choice == '1':
+            sub_choice_function(median_prompt, median_finding_right)
+        # 2. Randomized median finding algorithm
+        elif choice == '2':
+            sub_choice_function(random_median_prompt, median_finding_randomized)
+        # 3. Quick Sort choose random element in the array as the pivot
+        elif choice == '3':
+            sub_choice_function(random_sort_prompt, _quick_sort_test, type='random-sort')
+        # 4. Quick Sort choose median in the array as the pivot
+        elif choice == '4':
+            sub_choice_function(median_sort_prompt, _quick_sort_test, type='median-sort')
+        elif choice == '5':
+            print(end_string)
             exit()
         else:
-            print("请输入正确的选择......")
+            print(error_choice_string)
 
         # 如果是子菜单返回，不需要查询是否继续系统的运行，直接进入主菜单.
         if is_back:
@@ -50,7 +83,7 @@ def main():
         if again in ('Y', 'y', ''):
             continue
         else:
-            print("程序执行结束，欢迎下次访问.....")
+            print(end_string)
             break
 
 
