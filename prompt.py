@@ -9,7 +9,7 @@ introduce = """
     Name: Median finding, Order Statistics and Quick Sort
     Version: 0.1
     Date: 2020-7-26
-    Author: Hao Liu,  WenLong Liu, Fan Guo
+    Author: Hao Liu,  WenLong Li, Fan Guo
 
 ---------------------------------------------------------
 [*] Press any key enter  menu ......"""
@@ -28,8 +28,8 @@ menu = """
 [*] Press Choice 1-5: """
 median_prompt = "-------------------- Median of groups of 3,5 and 7 -----------------------"
 random_median_prompt = "-------------------- Randomized median finding algorithm -----------------------"
-median_sort_prompt = "-------------------- Quick Sort choose random element as pivot  -----------------------"
-random_sort_prompt = "-------------------- Quick Sort choose median as  pivot  ---------------"
+median_sort_prompt = "-------------------- Quick Sort choose median as  pivot  ---------------"
+random_sort_prompt = "-------------------- Quick Sort choose random element as pivot  -----------------------"
 other_prompt = """
 1. Hand Input Array
 2. Auto Random Array
