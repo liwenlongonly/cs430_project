@@ -23,15 +23,15 @@
    
    | Quick Sort       | randomized(ms) | Median(ms) |
    | ---------------- | -------------- | ---------- |
-   | positive sort 1k | 4.39           | 11.62      |
-   | reverse sort 1k  | 3.90           | 11.48      |
-   | random 1k        | 5.06           | 11.59      |
+   | positive sort 1k | 4.61           | 2.93       |
+   | reverse sort 1k  | 4.35           | 2.69       |
+   | random 1k        | 4.43           | 3.15       |
    
    | Quick Sort | randomized(ms) | Median(ms) |
    | ---------- | -------------- | ---------- |
-   | random 1k  | 4.29           | 9.94       |
-   | random 5k  | 25.53          | 56.88      |
-   | random 10k | 50.09          | 125.29     |
-   | random 15k | 74.65          | 272.18     |
-   | random 20k | 177.14         | 321.08     |
-   | random 25k | 169.42         | 395.53     |
+   | random 1k  | 4.82           | 3.22       |
+   | random 5k  | 26.28          | 16.66      |
+   | random 10k | 54.18          | 28.76      |
+   | random 15k | 74.74          | 45.29      |
+   | random 20k | 91.81          | 64.45      |
+   | random 25k | 127.44         | 77.72      |
