@@ -17,8 +17,8 @@ def print_execute_time(func):
         end = time()
         print("---------------------------- * Result * ----------------------------------")
         # 打印方法名称和其执行时间
-        print("%s execute time: %0.2f ms" % (func.__name__, (end - start) * 1000))
         print("%s execute result: %s" % (func.__name__, func_return))
+        print("%s execute time: %0.2f ms" % (func.__name__, (end - start) * 1000))
         print("--------------------------------------------------------------------------\n")
         # 返回func的返回值
         return func_return
