@@ -11,8 +11,8 @@ sys.setrecursionlimit(1000000)
 class QuickSort:
 
     def __init__(self):
-        self.t_median_=0
-        self.t_all=0
+        self.t_median_ = 0
+        self.t_all = 0
 
     def quickSort(self, n, type="random"):
         tmp = time.time()
@@ -69,12 +69,11 @@ class QuickSort:
             self._quickSort(n, q + 1, r)
 
 
-
-#@print_execute_time
+@print_execute_time
 def quick_sort_test(n, type="random"):
     obj_ = QuickSort()
     result, time =  obj_.quickSort(n, type)
-    print("execute time:%0.2f ms" % (time * 1000))
+    # print("execute time:%0.2f ms" % (time * 1000))
     return result
 
 
