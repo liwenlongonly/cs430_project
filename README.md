@@ -14,10 +14,10 @@
 
 ### List of Documents:
 
-1. median_finding.py is the code of question 1
+1. median_finding is the code of question 1
 
-2. quick_sort.py is the code of question 2
+2. quick_sort is the code of question 2
 
-3. test_data.py is the code of Generate data for testing
+3. test_data is the code of generate data for testing
 
 4. the other code is about the UI interface
