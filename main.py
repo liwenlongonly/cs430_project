@@ -44,7 +44,7 @@ def sub_choice_function(sub_prompt, func, type="median"):
             create_random_array(array, count)
             print(color_string(random_array_prompt.format(array)))
             if type == 'median':
-                result = func(array, 0, len(array) - 1, 1)
+                result = func(array, 0, len(array) - 1, (len(array) + 1) // 2)
             elif type == 'median-sort':
                 result = func(array, type="median")
             elif type == 'random-sort':

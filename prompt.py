@@ -28,7 +28,7 @@ introduce = """
     Name: Median finding, Order Statistics and Quick Sort
     Version: 0.1
     Date: 2020-7-26
-    Author: Hao Liu,  WenLong Li, Fan Guo
+    Author: Hao Liu, WenLong Li, Fan Guo
     Color Explain:
         Main Menu: Green
         Sub Menu: cyan
